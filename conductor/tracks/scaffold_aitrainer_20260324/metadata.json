@@ -1,0 +1,8 @@
+{
+  "track_id": "scaffold_aitrainer_20260324",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-03-24T12:00:00Z",
+  "updated_at": "2026-03-24T12:00:00Z",
+  "description": "Scaffold AITrainer core web application and API"
+}
