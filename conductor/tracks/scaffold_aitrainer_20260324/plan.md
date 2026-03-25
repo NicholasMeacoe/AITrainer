@@ -10,14 +10,14 @@
     - [ ] Verify the backend application starts and returns a successful response from the health check.
 - [x] Task: Conductor - User Manual Verification 'Project Scaffolding' [53a95f9] (Protocol in workflow.md)
 
-## Phase 2: Communication & Basic Structure
+## Phase 2: Communication ## Phase 2: Communication & Basic Structure Basic Structure [checkpoint: e365377]
 - [x] Task: Implement Frontend-Backend Communication [00cc84e]
     - [ ] Configure the frontend to make a simple request to the backend's health check endpoint.
     - [ ] Display the health status in the frontend UI.
 - [x] Task: Define Initial Project Structure [2885afa]
     - [ ] Organize frontend files into logical directories (e.g., `src/components`, `src/styles`, `src/api`).
     - [ ] Organize backend files into logical modules (e.g., `app/main.py`, `app/api/`, `app/core/`).
-- [ ] Task: Conductor - User Manual Verification 'Communication & Basic Structure' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Communication - [ ] Task: Conductor - User Manual Verification 'Communication & Basic Structure' Basic Structure' [e365377] (Protocol in workflow.md)
 
 ## Phase 3: Infrastructure & Orchestration
 - [ ] Task: Create Docker Configuration
