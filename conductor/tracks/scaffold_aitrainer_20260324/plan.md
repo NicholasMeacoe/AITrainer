@@ -20,7 +20,7 @@
 - [x] Task: Conductor - User Manual Verification 'Communication - [ ] Task: Conductor - User Manual Verification 'Communication & Basic Structure' Basic Structure' [e365377] (Protocol in workflow.md)
 
 ## Phase 3: Infrastructure & Orchestration
-- [~] Task: Create Docker Configuration
+- [x] Task: Create Docker Configuration [e725a7c]
     - [ ] Write a `Dockerfile` for the React frontend.
     - [ ] Write a `Dockerfile` for the FastAPI backend.
     - [ ] Create a `docker-compose.yml` to orchestrate both services.
