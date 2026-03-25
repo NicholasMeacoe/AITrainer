@@ -4,7 +4,7 @@
 - [x] Task: Initialize React Frontend [db69821] (TypeScript, Vanilla CSS)
     - [ ] Create a new React application using `create-react-app` or a similar tool.
     - [ ] Verify the initial frontend application starts and renders correctly.
-- [ ] Task: Initialize FastAPI Backend (Python 3.11+)
+- [x] Task: Initialize FastAPI Backend [ed30af1] (Python 3.11+)
     - [ ] Set up the basic Python environment and install FastAPI and Uvicorn.
     - [ ] Create a minimal FastAPI application with a "health check" endpoint (`/health`).
     - [ ] Verify the backend application starts and returns a successful response from the health check.
