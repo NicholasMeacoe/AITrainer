@@ -14,7 +14,7 @@
 - [x] Task: Implement Frontend-Backend Communication [00cc84e]
     - [ ] Configure the frontend to make a simple request to the backend's health check endpoint.
     - [ ] Display the health status in the frontend UI.
-- [ ] Task: Define Initial Project Structure
+- [~] Task: Define Initial Project Structure
     - [ ] Organize frontend files into logical directories (e.g., `src/components`, `src/styles`, `src/api`).
     - [ ] Organize backend files into logical modules (e.g., `app/main.py`, `app/api/`, `app/core/`).
 - [ ] Task: Conductor - User Manual Verification 'Communication & Basic Structure' (Protocol in workflow.md)
