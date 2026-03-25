@@ -18,4 +18,18 @@ describe('App', () => {
     await user.click(button);
     expect(screen.getByRole('button', { name: /Count is 1/i })).toBeInTheDocument();
   });
+
+  it('should display the backend status after a successful fetch', async () => {
+    // Mock fetch for the backend health check
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ status: 'ok' }),
+    });
+
+    render(<App />);
+    
+    // Wait for the status to be updated in the UI
+    const statusElement = await screen.findByText(/Backend Status: OK/i);
+    expect(statusElement).toBeInTheDocument();
+  });
 });

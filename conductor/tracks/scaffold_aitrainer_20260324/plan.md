@@ -11,7 +11,7 @@
 - [x] Task: Conductor - User Manual Verification 'Project Scaffolding' [53a95f9] (Protocol in workflow.md)
 
 ## Phase 2: Communication & Basic Structure
-- [ ] Task: Implement Frontend-Backend Communication
+- [~] Task: Implement Frontend-Backend Communication
     - [ ] Configure the frontend to make a simple request to the backend's health check endpoint.
     - [ ] Display the health status in the frontend UI.
 - [ ] Task: Define Initial Project Structure

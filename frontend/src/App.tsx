@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -6,9 +6,23 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [backendStatus, setBackendStatus] = useState<string>('Loading...')
+
+  useEffect(() => {
+    fetch('http://localhost:8000/health')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 'ok') {
+          setBackendStatus('OK')
+        } else {
+          setBackendStatus('Error')
+        }
+      })
+      .catch(() => setBackendStatus('Error'))
+  }, [])
 
   return (
-    <>
+    <div>
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
@@ -20,6 +34,9 @@ function App() {
             AITrainer
           </h1>
           <p>
+            Backend Status: {backendStatus}
+          </p>
+          <p>
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
         </div>
@@ -30,9 +47,7 @@ function App() {
           Count is {count}
         </button>
       </section>
-
       <div className="ticks"></div>
-
       <section id="next-steps">
         <div id="docs">
           <svg className="icon" role="presentation" aria-hidden="true">
@@ -43,13 +58,13 @@ function App() {
           <ul>
             <li>
               <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
+                <img src={viteLogo} className="logo" alt="" />
                 Explore Vite
               </a>
             </li>
             <li>
               <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
+                <img src={reactLogo} className="button-icon" alt="" />
                 Learn more
               </a>
             </li>
@@ -64,11 +79,7 @@ function App() {
           <ul>
             <li>
               <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#github-icon"></use>
                 </svg>
                 GitHub
@@ -76,11 +87,7 @@ function App() {
             </li>
             <li>
               <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#discord-icon"></use>
                 </svg>
                 Discord
@@ -88,11 +95,7 @@ function App() {
             </li>
             <li>
               <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#x-icon"></use>
                 </svg>
                 X.com
@@ -100,11 +103,7 @@ function App() {
             </li>
             <li>
               <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#bluesky-icon"></use>
                 </svg>
                 Bluesky
@@ -113,10 +112,9 @@ function App() {
           </ul>
         </div>
       </section>
-
       <div className="ticks"></div>
       <section id="spacer"></section>
-    </>
+    </div>
   )
 }
 
