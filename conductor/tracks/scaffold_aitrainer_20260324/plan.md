@@ -1,6 +1,6 @@
 # Implementation Plan: Scaffold AITrainer core web application and API
 
-## Phase 1: Project Scaffolding
+## Phase 1: Project Scaffolding [checkpoint: 53a95f9]
 - [x] Task: Initialize React Frontend [db69821] (TypeScript, Vanilla CSS)
     - [ ] Create a new React application using `create-react-app` or a similar tool.
     - [ ] Verify the initial frontend application starts and renders correctly.

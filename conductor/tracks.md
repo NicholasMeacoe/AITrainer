@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Scaffold AITrainer core web application and API**
+- [~] **Track: Scaffold AITrainer core web application and API**
   *Link: [./tracks/scaffold_aitrainer_20260324/](./tracks/scaffold_aitrainer_20260324/)*
