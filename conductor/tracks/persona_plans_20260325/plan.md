@@ -22,7 +22,7 @@
 - [x] Task: Conductor - User Manual Verification 'Plan Builder Logic' [3704665] (Protocol in workflow.md)
 
 ## Phase 3: Frontend - Persona Dashboard
-- [ ] Task: Create Persona Dashboard Components
+- [x] Task: Create Persona Dashboard Components [5aa9426]
     - [ ] Write Vitest tests for PersonaList and PersonaCard components.
     - [ ] Implement React components to browse and search personas.
 - [ ] Task: Implement Persona Creation/Edit UI (Modal/Sidebar)
