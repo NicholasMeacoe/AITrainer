@@ -1,7 +1,7 @@
 # Implementation Plan: Persona-Based Learning Plan Management
 
 ## Phase 1: Backend Foundation (Persona Model & CRUD)
-- [ ] Task: Define Persona Database Schema and Model
+- [x] Task: Define Persona Database Schema and Model [b9c8a99]
     - [ ] Write tests for Persona model validation.
     - [ ] Implement SQLAlchemy model for Personas (Name, Description, Template flag).
     - [ ] Create database migration.
