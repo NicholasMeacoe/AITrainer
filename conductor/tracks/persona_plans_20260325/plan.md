@@ -12,7 +12,7 @@
 - [x] Task: Conductor - User Manual Verification 'Backend Foundation' [07559fc] (Protocol in workflow.md)
 
 ## Phase 2: Plan Builder Logic (Sequencing & Metadata)
-- [ ] Task: Implement Plan Metadata & Module Association
+- [x] Task: Implement Plan Metadata & Module Association [ceffbec]
     - [ ] Write tests for Plan-Module association logic.
     - [ ] Implement models for Plan Sequences (Target Competencies, Difficulty, Duration).
     - [ ] Create endpoints to associate modules with a persona track.
