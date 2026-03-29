@@ -1,6 +1,6 @@
 # Implementation Plan: Persona-Based Learning Plan Management
 
-## Phase 1: Backend Foundation (Persona Model & CRUD)
+## Phase 1: Backend Foundation (Persona Model & CRUD) [checkpoint: 07559fc]
 - [x] Task: Define Persona Database Schema and Model [b9c8a99]
     - [ ] Write tests for Persona model validation.
     - [ ] Implement SQLAlchemy model for Personas (Name, Description, Template flag).
@@ -9,7 +9,7 @@
     - [ ] Write failing tests for GET, POST, PUT, DELETE /api/v1/personas.
     - [ ] Implement FastAPI endpoints for persona management.
     - [ ] Verify coverage >80% for persona endpoints.
-- [ ] Task: Conductor - User Manual Verification 'Backend Foundation' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Backend Foundation' [07559fc] (Protocol in workflow.md)
 
 ## Phase 2: Plan Builder Logic (Sequencing & Metadata)
 - [ ] Task: Implement Plan Metadata & Module Association
