@@ -9,22 +9,29 @@ describe('PersonaForm', () => {
     expect(screen.getByLabelText(/Name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Description/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Template/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Competencies/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Difficulty/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Duration/i)).toBeInTheDocument();
   });
 
-  it('should call onSubmit with form data', async () => {
+  it('should call onSubmit with form data including metadata', async () => {
     const handleSubmit = vi.fn();
     render(<PersonaForm onSubmit={handleSubmit} />);
     
     fireEvent.change(screen.getByLabelText(/Name/i), { target: { value: 'New Persona' } });
-    fireEvent.change(screen.getByLabelText(/Description/i), { target: { value: 'New Desc' } });
-    fireEvent.click(screen.getByLabelText(/Template/i));
+    fireEvent.change(screen.getByLabelText(/Competencies/i), { target: { value: 'AI, ML' } });
+    fireEvent.change(screen.getByLabelText(/Difficulty/i), { target: { value: 'Advanced' } });
+    fireEvent.change(screen.getByLabelText(/Duration/i), { target: { value: '20h' } });
     
     fireEvent.click(screen.getByRole('button', { name: /Save/i }));
     
     expect(handleSubmit).toHaveBeenCalledWith({
       name: 'New Persona',
-      description: 'New Desc',
-      is_template: true,
+      description: '',
+      is_template: false,
+      target_competencies: 'AI, ML',
+      difficulty: 'Advanced',
+      estimated_duration: '20h',
     });
   });
 });
