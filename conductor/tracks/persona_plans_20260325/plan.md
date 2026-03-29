@@ -30,14 +30,14 @@
     - [ ] Implement Modal/Sidebar interface for persona CRUD.
 - [x] Task: Conductor - User Manual Verification 'Persona Dashboard' [d01ebff] (Protocol in workflow.md)
 
-## Phase 4: Frontend - Drag-and-Drop Plan Builder
+## Phase 4: Frontend - Drag-and-Drop Plan Builder [checkpoint: 24abb74]
 - [x] Task: Implement Drag-and-Drop Sequencing Interface [15fbfbc]
     - [ ] Write tests for reordering logic and component rendering.
     - [ ] Implement visual plan builder using a drag-and-drop library.
 - [x] Task: Integrate Plan Metadata Forms [6f90732]
     - [ ] Write tests for Competency/Difficulty inputs.
     - [ ] Implement UI to set plan-specific attributes.
-- [ ] Task: Conductor - User Manual Verification 'Plan Builder UI' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Plan Builder UI' [24abb74] (Protocol in workflow.md)
 
 ## Phase 5: User Selection & Onboarding Flow
 - [ ] Task: Implement User Persona Selection UI
