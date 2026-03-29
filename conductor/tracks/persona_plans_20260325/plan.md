@@ -5,7 +5,7 @@
     - [ ] Write tests for Persona model validation.
     - [ ] Implement SQLAlchemy model for Personas (Name, Description, Template flag).
     - [ ] Create database migration.
-- [ ] Task: Implement Persona CRUD API Endpoints
+- [x] Task: Implement Persona CRUD API Endpoints [aa26228]
     - [ ] Write failing tests for GET, POST, PUT, DELETE /api/v1/personas.
     - [ ] Implement FastAPI endpoints for persona management.
     - [ ] Verify coverage >80% for persona endpoints.
