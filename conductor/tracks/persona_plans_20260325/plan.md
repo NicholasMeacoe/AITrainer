@@ -16,7 +16,7 @@
     - [ ] Write tests for Plan-Module association logic.
     - [ ] Implement models for Plan Sequences (Target Competencies, Difficulty, Duration).
     - [ ] Create endpoints to associate modules with a persona track.
-- [ ] Task: Implement AI-Assisted Drafting Endpoint
+- [x] Task: Implement AI-Assisted Drafting Endpoint [2f43ce3]
     - [ ] Write tests for the AI drafting service (mocking external LLM).
     - [ ] Implement endpoint to generate a draft module sequence from a persona goal.
 - [ ] Task: Conductor - User Manual Verification 'Plan Builder Logic' (Protocol in workflow.md)
