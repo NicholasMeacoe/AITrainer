@@ -40,7 +40,7 @@
 - [x] Task: Conductor - User Manual Verification 'Plan Builder UI' [24abb74] (Protocol in workflow.md)
 
 ## Phase 5: User Selection & Onboarding Flow
-- [ ] Task: Implement User Persona Selection UI
+- [x] Task: Implement User Persona Selection UI [9f301a0]
     - [ ] Write tests for the persona selection interaction.
     - [ ] Create a settings/onboarding component for learners to choose their persona.
 - [ ] Task: Dynamic Dashboard Module Filtering
