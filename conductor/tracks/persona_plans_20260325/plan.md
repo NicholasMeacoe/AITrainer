@@ -25,7 +25,7 @@
 - [x] Task: Create Persona Dashboard Components [5aa9426]
     - [ ] Write Vitest tests for PersonaList and PersonaCard components.
     - [ ] Implement React components to browse and search personas.
-- [ ] Task: Implement Persona Creation/Edit UI (Modal/Sidebar)
+- [x] Task: Implement Persona Creation/Edit UI [b01f8f9] (Modal/Sidebar)
     - [ ] Write tests for the Persona form and validation logic.
     - [ ] Implement Modal/Sidebar interface for persona CRUD.
 - [ ] Task: Conductor - User Manual Verification 'Persona Dashboard' (Protocol in workflow.md)
