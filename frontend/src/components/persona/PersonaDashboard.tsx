@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import PersonaList, { Persona } from './PersonaList';
 import Modal from '../layout/Modal';
 import PersonaForm from './PersonaForm';
+import PersonaDetail from './PersonaDetail';
 
 const PersonaDashboard: React.FC = () => {
   const [personas, setPersonas] = useState<Persona[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPersonaId, setSelectedPersonaId] = useState<number | null>(null);
 
   const fetchPersonas = () => {
     setLoading(true);
@@ -50,6 +52,15 @@ const PersonaDashboard: React.FC = () => {
   if (loading) return <div>Loading personas...</div>;
   if (error) return <div>Error: {error}</div>;
 
+  if (selectedPersonaId) {
+    return (
+      <PersonaDetail
+        personaId={selectedPersonaId}
+        onBack={() => setSelectedPersonaId(null)}
+      />
+    );
+  }
+
   return (
     <div className="persona-dashboard">
       <div className="header-actions">
@@ -60,7 +71,16 @@ const PersonaDashboard: React.FC = () => {
       {personas.length === 0 ? (
         <p>No personas defined yet. Start by creating one!</p>
       ) : (
-        <PersonaList personas={personas} />
+        <div onClick={(e) => {
+          const card = (e.target as HTMLElement).closest('.persona-card');
+          if (card) {
+            const name = card.querySelector('h3')?.textContent;
+            const p = personas.find(p => p.name === name);
+            if (p) setSelectedPersonaId(p.id);
+          }
+        }}>
+          <PersonaList personas={personas} />
+        </div>
       )}
 
       <Modal

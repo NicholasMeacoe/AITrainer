@@ -69,4 +69,33 @@ describe('PersonaDashboard', () => {
     fireEvent.click(screen.getByText(/Create Persona/i));
     expect(screen.getByText(/Create New Persona/i)).toBeInTheDocument();
   });
+
+  it('should navigate to detail view when a persona card is clicked', async () => {
+    const mockPersonas = [
+      { id: 1, name: 'Junior Dev', description: 'Beginner', is_template: true },
+    ];
+    const mockDetail = { id: 1, name: 'Junior Dev', description: 'Beginner', modules: [] };
+
+    (fetch as any).mockImplementation((url: string) => {
+      if (url.endsWith('/api/v1/personas/')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => mockPersonas,
+        });
+      }
+      if (url.endsWith('/api/v1/personas/1')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => mockDetail,
+        });
+      }
+      return Promise.reject(new Error('Unknown URL'));
+    });
+
+    render(<PersonaDashboard />);
+    await waitFor(() => expect(screen.getByText('Junior Dev')).toBeInTheDocument());
+    
+    fireEvent.click(screen.getByText('Junior Dev'));
+    await waitFor(() => expect(screen.getByText(/Junior Dev Plan/i)).toBeInTheDocument());
+  });
 });

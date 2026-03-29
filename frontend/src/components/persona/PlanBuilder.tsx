@@ -1,0 +1,63 @@
+import React, { useState } from 'react';
+import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
+
+interface Module {
+  id: number;
+  name: string;
+  description?: string;
+}
+
+interface PlanBuilderProps {
+  initialModules: Module[];
+  onReorder: (modules: Module[]) => void;
+}
+
+const PlanBuilder: React.FC<PlanBuilderProps> = ({ initialModules = [], onReorder }) => {
+  const [modules, setModules] = useState<Module[]>(initialModules);
+
+  const handleOnDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+
+    const items = Array.from(modules);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setModules(items);
+    onReorder(items);
+  };
+
+  return (
+    <div className="plan-builder">
+      <DragDropContext onDragEnd={handleOnDragEnd}>
+        <Droppable droppableId="modules">
+          {(provided) => (
+            <div
+              className="modules-list"
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              {modules.map((module, index) => (
+                <Draggable key={module.id} draggableId={String(module.id)} index={index}>
+                  {(provided) => (
+                    <div
+                      className="module-item"
+                      ref={provided.innerRef}
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                    >
+                      <h4>{module.name}</h4>
+                      <p>{module.description}</p>
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
+    </div>
+  );
+};
+
+export default PlanBuilder;
