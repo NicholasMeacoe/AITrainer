@@ -4,7 +4,8 @@ from sqlalchemy.orm import Session
 
 from app.api import deps
 from app.models.persona import Persona as PersonaModel
-from app.schemas.persona import Persona, PersonaCreate, PersonaUpdate
+from app.models.module import PersonaModule as PersonaModuleModel
+from app.schemas.persona import Persona, PersonaCreate, PersonaUpdate, PersonaModuleCreate, PersonaModuleSchema
 
 router = APIRouter()
 
@@ -27,6 +28,9 @@ def create_persona(
         name=persona_in.name,
         description=persona_in.description,
         is_template=persona_in.is_template,
+        target_competencies=persona_in.target_competencies,
+        difficulty=persona_in.difficulty,
+        estimated_duration=persona_in.estimated_duration,
     )
     db.add(persona)
     db.commit()
@@ -75,3 +79,24 @@ def delete_persona(
         raise HTTPException(status_code=404, detail="Persona not found")
     db.delete(persona)
     db.commit()
+
+@router.post("/{id}/modules/", response_model=PersonaModuleSchema)
+def associate_module(
+    *,
+    db: Session = Depends(deps.get_db),
+    id: int,
+    assoc_in: PersonaModuleCreate,
+) -> Any:
+    persona = db.query(PersonaModel).filter(PersonaModel.id == id).first()
+    if not persona:
+        raise HTTPException(status_code=404, detail="Persona not found")
+    
+    assoc = PersonaModuleModel(
+        persona_id=id,
+        module_id=assoc_in.module_id,
+        order=assoc_in.order
+    )
+    db.add(assoc)
+    db.commit()
+    db.refresh(assoc)
+    return assoc
