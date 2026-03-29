@@ -34,7 +34,7 @@
 - [x] Task: Implement Drag-and-Drop Sequencing Interface [15fbfbc]
     - [ ] Write tests for reordering logic and component rendering.
     - [ ] Implement visual plan builder using a drag-and-drop library.
-- [ ] Task: Integrate Plan Metadata Forms
+- [x] Task: Integrate Plan Metadata Forms [6f90732]
     - [ ] Write tests for Competency/Difficulty inputs.
     - [ ] Implement UI to set plan-specific attributes.
 - [ ] Task: Conductor - User Manual Verification 'Plan Builder UI' (Protocol in workflow.md)
