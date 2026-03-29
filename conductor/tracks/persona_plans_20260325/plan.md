@@ -11,7 +11,7 @@
     - [ ] Verify coverage >80% for persona endpoints.
 - [x] Task: Conductor - User Manual Verification 'Backend Foundation' [07559fc] (Protocol in workflow.md)
 
-## Phase 2: Plan Builder Logic (Sequencing & Metadata)
+## Phase 2: Plan Builder Logic (Sequencing & Metadata) [checkpoint: 3704665]
 - [x] Task: Implement Plan Metadata & Module Association [ceffbec]
     - [ ] Write tests for Plan-Module association logic.
     - [ ] Implement models for Plan Sequences (Target Competencies, Difficulty, Duration).
@@ -19,7 +19,7 @@
 - [x] Task: Implement AI-Assisted Drafting Endpoint [2f43ce3]
     - [ ] Write tests for the AI drafting service (mocking external LLM).
     - [ ] Implement endpoint to generate a draft module sequence from a persona goal.
-- [ ] Task: Conductor - User Manual Verification 'Plan Builder Logic' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Plan Builder Logic' [3704665] (Protocol in workflow.md)
 
 ## Phase 3: Frontend - Persona Dashboard
 - [ ] Task: Create Persona Dashboard Components
