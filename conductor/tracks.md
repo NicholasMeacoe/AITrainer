@@ -6,3 +6,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 - [x] **Track: Scaffold AITrainer core web application and API**
   *Link: [./tracks/scaffold_aitrainer_20260324/](./tracks/scaffold_aitrainer_20260324/)*
+
+---
+
+- [ ] **Track: Persona-Based Learning Plan Management**
+  *Link: [./tracks/persona_plans_20260325/](./tracks/persona_plans_20260325/)*
