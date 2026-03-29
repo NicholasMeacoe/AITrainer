@@ -3,9 +3,11 @@ from fastapi import APIRouter, Depends, HTTPException, status, Response
 from sqlalchemy.orm import Session
 
 from app.api import deps
+from app.core.ai import get_ai_draft
 from app.models.persona import Persona as PersonaModel
 from app.models.module import PersonaModule as PersonaModuleModel
 from app.schemas.persona import Persona, PersonaCreate, PersonaUpdate, PersonaModuleCreate, PersonaModuleSchema
+from app.schemas.module import ModuleCreate as ModuleCreateSchema
 
 router = APIRouter()
 
@@ -100,3 +102,17 @@ def associate_module(
     db.commit()
     db.refresh(assoc)
     return assoc
+
+@router.post("/{id}/draft", response_model=List[ModuleCreateSchema])
+def draft_persona_plan(
+    *,
+    db: Session = Depends(deps.get_db),
+    id: int,
+) -> Any:
+    persona = db.query(PersonaModel).filter(PersonaModel.id == id).first()
+    if not persona:
+        raise HTTPException(status_code=404, detail="Persona not found")
+    
+    # Call AI service
+    suggestions = get_ai_draft(persona.name, persona.description)
+    return suggestions
