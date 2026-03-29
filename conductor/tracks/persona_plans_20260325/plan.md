@@ -31,7 +31,7 @@
 - [x] Task: Conductor - User Manual Verification 'Persona Dashboard' [d01ebff] (Protocol in workflow.md)
 
 ## Phase 4: Frontend - Drag-and-Drop Plan Builder
-- [ ] Task: Implement Drag-and-Drop Sequencing Interface
+- [x] Task: Implement Drag-and-Drop Sequencing Interface [15fbfbc]
     - [ ] Write tests for reordering logic and component rendering.
     - [ ] Implement visual plan builder using a drag-and-drop library.
 - [ ] Task: Integrate Plan Metadata Forms
