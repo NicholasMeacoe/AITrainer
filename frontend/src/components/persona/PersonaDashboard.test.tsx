@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import PersonaDashboard from './PersonaDashboard';
 
@@ -56,5 +56,17 @@ describe('PersonaDashboard', () => {
     });
     render(<PersonaDashboard />);
     await waitFor(() => expect(screen.getByText(/Error: Failed to fetch personas/i)).toBeInTheDocument());
+  });
+
+  it('should open the modal when Create Persona button is clicked', async () => {
+    (fetch as any).mockResolvedValue({
+      ok: true,
+      json: async () => [],
+    });
+    render(<PersonaDashboard />);
+    await waitFor(() => expect(screen.queryByText(/Loading personas.../i)).not.toBeInTheDocument());
+    
+    fireEvent.click(screen.getByText(/Create Persona/i));
+    expect(screen.getByText(/Create New Persona/i)).toBeInTheDocument();
   });
 });
