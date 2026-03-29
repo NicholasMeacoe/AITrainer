@@ -9,5 +9,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Persona-Based Learning Plan Management**
+- [~] **Track: Persona-Based Learning Plan Management**
   *Link: [./tracks/persona_plans_20260325/](./tracks/persona_plans_20260325/)*
