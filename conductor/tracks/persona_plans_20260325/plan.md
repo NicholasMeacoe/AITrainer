@@ -39,11 +39,11 @@
     - [ ] Implement UI to set plan-specific attributes.
 - [x] Task: Conductor - User Manual Verification 'Plan Builder UI' [24abb74] (Protocol in workflow.md)
 
-## Phase 5: User Selection & Onboarding Flow
+## Phase 5: User Selection & Onboarding Flow [checkpoint: 9c58daf]
 - [x] Task: Implement User Persona Selection UI [9f301a0]
     - [ ] Write tests for the persona selection interaction.
     - [ ] Create a settings/onboarding component for learners to choose their persona.
 - [x] Task: Dynamic Dashboard Module Filtering [c901614]
     - [ ] Write tests for dashboard content filtering based on active persona.
     - [ ] Update the learner dashboard to fetch and display the selected persona's roadmap.
-- [ ] Task: Conductor - User Manual Verification 'User Selection & Integration' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'User Selection & Integration' [9c58daf] (Protocol in workflow.md)
