@@ -1,13 +1,16 @@
 # Technology Stack: AITrainer
 
+## Backend
+- **Framework:** **Python (FastAPI)** for a modern, high-performance, and asynchronous backend that's ideal for AI/ML integrations and rapid API development.
+- **Runtime:** **Python 3.11+** to leverage the latest language features and performance improvements.
+- **ORM:** **SQLAlchemy** for powerful and flexible relational database mapping.
+- **Migrations:** **Alembic** for robust database schema versioning and migrations.
+
 ## Frontend
 - **Framework:** **React (TypeScript)** for building a robust, interactive, and type-safe user interface.
 - **Styling:** **Vanilla CSS** for maximum flexibility and control over the platform's vibrant and engaging visual aesthetic.
 - **State Management:** **React Context** or **Zustand** for managing complex application state (e.g., active persona, progress, sandbox state).
-
-## Backend
-- **Framework:** **Python (FastAPI)** for a modern, high-performance, and asynchronous backend that's ideal for AI/ML integrations and rapid API development.
-- **Runtime:** **Python 3.11+** to leverage the latest language features and performance improvements.
+- **Drag-and-Drop:** **@hello-pangea/dnd** for providing a seamless visual interface for reordering learning modules.
 
 ## Database & Storage
 - **Relational Database:** **PostgreSQL** for storing user profiles, persona configurations, structured educational content, and progress tracking data.
