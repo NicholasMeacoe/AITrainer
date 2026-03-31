@@ -47,3 +47,6 @@
     - [ ] Write tests for dashboard content filtering based on active persona.
     - [ ] Update the learner dashboard to fetch and display the selected persona's roadmap.
 - [x] Task: Conductor - User Manual Verification 'User Selection & Integration' [9c58daf] (Protocol in workflow.md)
+
+## Phase: Review Fixes
+- [x] Task: Apply review suggestions [6cb297a]
