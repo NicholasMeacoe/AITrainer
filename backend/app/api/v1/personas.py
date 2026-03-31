@@ -61,7 +61,7 @@ def update_persona(
     if not persona:
         raise HTTPException(status_code=404, detail="Persona not found")
     
-    update_data = persona_in.dict(exclude_unset=True)
+    update_data = persona_in.model_dump(exclude_unset=True)
     for field, value in update_data.items():
         setattr(persona, field, value)
     

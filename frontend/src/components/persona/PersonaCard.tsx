@@ -9,11 +9,12 @@ interface Persona {
 
 interface PersonaCardProps {
   persona: Persona;
+  onClick?: () => void;
 }
 
-const PersonaCard: React.FC<PersonaCardProps> = ({ persona }) => {
+const PersonaCard: React.FC<PersonaCardProps> = ({ persona, onClick }) => {
   return (
-    <div className="persona-card">
+    <div className="persona-card" onClick={onClick} style={{ cursor: onClick ? 'pointer' : 'default' }}>
       <h3>{persona.name}</h3>
       <p>{persona.description}</p>
       {persona.is_template && <span className="badge">Template</span>}

@@ -95,7 +95,8 @@ describe('PersonaDashboard', () => {
     render(<PersonaDashboard />);
     await waitFor(() => expect(screen.getByText('Junior Dev')).toBeInTheDocument());
     
-    fireEvent.click(screen.getByText('Junior Dev'));
+    // The card itself is now clickable
+    fireEvent.click(screen.getByText('Junior Dev').closest('.persona-card')!);
     await waitFor(() => expect(screen.getByText(/Junior Dev Plan/i)).toBeInTheDocument());
   });
 });

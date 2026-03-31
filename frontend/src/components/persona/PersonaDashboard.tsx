@@ -71,16 +71,7 @@ const PersonaDashboard: React.FC = () => {
       {personas.length === 0 ? (
         <p>No personas defined yet. Start by creating one!</p>
       ) : (
-        <div onClick={(e) => {
-          const card = (e.target as HTMLElement).closest('.persona-card');
-          if (card) {
-            const name = card.querySelector('h3')?.textContent;
-            const p = personas.find(p => p.name === name);
-            if (p) setSelectedPersonaId(p.id);
-          }
-        }}>
-          <PersonaList personas={personas} />
-        </div>
+        <PersonaList personas={personas} onSelect={setSelectedPersonaId} />
       )}
 
       <Modal

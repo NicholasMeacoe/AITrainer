@@ -7,7 +7,8 @@ from alembic import context
 
 # Import your models here
 from app.core.database import Base
-from app.models.persona import Persona # Ensure all models are imported
+from app.models.persona import Persona
+from app.models.module import Module, PersonaModule
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
