@@ -13,7 +13,7 @@
 - **Drag-and-Drop:** **@hello-pangea/dnd** for providing a seamless visual interface for reordering learning modules.
 
 ## Database & Storage
-- **Relational Database:** **PostgreSQL** for storing user profiles, persona configurations, structured educational content, and progress tracking data.
+- **Relational Database:** **SQLite** (Initial/Development) or **PostgreSQL** for storing user profiles, persona configurations, structured educational content, and progress tracking data.
 - **Vector Database:** A specialized vector database (e.g., **Pinecone** or **PGVector**) for efficient semantic search and Retrieval-Augmented Generation (RAG) across the platform's learning material.
 
 ## AI & Machine Learning
