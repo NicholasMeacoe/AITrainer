@@ -27,6 +27,14 @@ def setup_test_db():
     if os.path.exists("./test_api.db"):
         os.remove("./test_api.db")
 
+@pytest.fixture
+def db(setup_test_db):
+    session = setup_test_db()
+    try:
+        yield session
+    finally:
+        session.close()
+
 @pytest.fixture(autouse=True)
 def override_get_db(setup_test_db):
     def _get_test_db():
