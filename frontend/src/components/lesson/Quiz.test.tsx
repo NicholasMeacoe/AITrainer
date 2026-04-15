@@ -43,4 +43,9 @@ describe('Quiz', () => {
     fireEvent.click(screen.getByText('Continue to Next Lesson'));
     expect(handleComplete).toHaveBeenCalled();
   });
+
+  it('should render error message for invalid quiz content', () => {
+    render(<Quiz content="invalid-json" onComplete={() => {}} />);
+    expect(screen.getByText(/Error: Invalid quiz content/i)).toBeInTheDocument();
+  });
 });

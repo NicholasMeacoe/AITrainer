@@ -27,9 +27,16 @@ const PersonaDetail: React.FC<PersonaDetailProps> = ({ personaId, onBack }) => {
 
   useEffect(() => {
     fetch(`http://localhost:8000/api/v1/personas/${personaId}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error('Persona not found');
+        return res.json();
+      })
       .then((data) => {
         setPersona(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setPersona(null);
         setLoading(false);
       });
   }, [personaId]);

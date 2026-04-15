@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import PersonaList, { Persona } from './PersonaList';
+import PersonaList from './PersonaList';
+import type { Persona } from './PersonaList';
 import Modal from '../layout/Modal';
 import PersonaForm from './PersonaForm';
 import PersonaDetail from './PersonaDetail';

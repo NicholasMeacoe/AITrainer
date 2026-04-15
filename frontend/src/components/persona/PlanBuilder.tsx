@@ -14,15 +14,20 @@ interface PlanBuilderProps {
   onStartModule?: (moduleId: number) => void;
 }
 
+export const reorder = (list: any[], startIndex: number, endIndex: number) => {
+  const result = Array.from(list);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+  return result;
+};
+
 const PlanBuilder: React.FC<PlanBuilderProps> = ({ initialModules = [], onReorder, onStartModule }) => {
   const [modules, setModules] = useState<Module[]>(initialModules);
 
   const handleOnDragEnd = (result: DropResult) => {
     if (!result.destination) return;
 
-    const items = Array.from(modules);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
+    const items = reorder(modules, result.source.index, result.destination.index);
 
     setModules(items);
     onReorder(items);

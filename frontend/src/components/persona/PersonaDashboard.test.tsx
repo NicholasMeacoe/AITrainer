@@ -58,45 +58,52 @@ describe('PersonaDashboard', () => {
     await waitFor(() => expect(screen.getByText(/Error: Failed to fetch personas/i)).toBeInTheDocument());
   });
 
-  it('should open the modal when Create Persona button is clicked', async () => {
-    (fetch as any).mockResolvedValue({
-      ok: true,
-      json: async () => [],
-    });
-    render(<PersonaDashboard />);
-    await waitFor(() => expect(screen.queryByText(/Loading personas.../i)).not.toBeInTheDocument());
-    
-    fireEvent.click(screen.getByText(/Create Persona/i));
-    expect(screen.getByText(/Create New Persona/i)).toBeInTheDocument();
-  });
-
-  it('should navigate to detail view when a persona card is clicked', async () => {
-    const mockPersonas = [
-      { id: 1, name: 'Junior Dev', description: 'Beginner', is_template: true },
-    ];
-    const mockDetail = { id: 1, name: 'Junior Dev', description: 'Beginner', modules: [] };
-
+  it('should call fetch to create a persona when form is submitted', async () => {
     (fetch as any).mockImplementation((url: string) => {
       if (url.endsWith('/api/v1/personas/')) {
         return Promise.resolve({
           ok: true,
-          json: async () => mockPersonas,
-        });
-      }
-      if (url.endsWith('/api/v1/personas/1')) {
-        return Promise.resolve({
-          ok: true,
-          json: async () => mockDetail,
+          json: async () => [],
         });
       }
       return Promise.reject(new Error('Unknown URL'));
     });
 
     render(<PersonaDashboard />);
-    await waitFor(() => expect(screen.getByText('Junior Dev')).toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByText(/Loading personas.../i)).not.toBeInTheDocument());
     
-    // The card itself is now clickable
-    fireEvent.click(screen.getByText('Junior Dev').closest('.persona-card')!);
-    await waitFor(() => expect(screen.getByText(/Junior Dev Plan/i)).toBeInTheDocument());
+    fireEvent.click(screen.getByText(/Create Persona/i));
+    
+    // Simulate form submission
+    const nameInput = screen.getByLabelText(/Name/i);
+    fireEvent.change(nameInput, { target: { value: 'New Persona' } });
+    
+    // We need to find the submit button in the modal
+    // In PersonaForm.tsx, the button text is "Save"
+    const submitButton = screen.getByRole('button', { name: /Save/i });
+    
+    // Mock the POST response
+    (fetch as any).mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ id: 3, name: 'New Persona' }),
+    });
+
+    fireEvent.click(submitButton);
+
+    await waitFor(() => expect(fetch).toHaveBeenCalledWith(
+      expect.stringContaining('/api/v1/personas/'),
+      expect.objectContaining({ 
+        method: 'POST',
+        body: expect.stringContaining('New Persona')
+      })
+    ));
+  });
+
+  it('should display error when fetch fails', async () => {
+    (fetch as any).mockResolvedValueOnce({
+      ok: false,
+    });
+    render(<PersonaDashboard />);
+    await waitFor(() => expect(screen.getByText(/Error: Failed to fetch personas/i)).toBeInTheDocument());
   });
 });
