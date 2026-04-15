@@ -10,8 +10,8 @@ export enum LessonType {
 export interface Lesson {
   id: number;
   module_id: number;
-  title: str;
-  content: str;
+  title: string;
+  content: string;
   type: LessonType;
   order: number;
 }
