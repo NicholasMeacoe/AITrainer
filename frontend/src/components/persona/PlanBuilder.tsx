@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
+import type { DropResult } from '@hello-pangea/dnd';
 
 interface Module {
   id: number;
@@ -10,9 +11,10 @@ interface Module {
 interface PlanBuilderProps {
   initialModules: Module[];
   onReorder: (modules: Module[]) => void;
+  onStartModule?: (moduleId: number) => void;
 }
 
-const PlanBuilder: React.FC<PlanBuilderProps> = ({ initialModules = [], onReorder }) => {
+const PlanBuilder: React.FC<PlanBuilderProps> = ({ initialModules = [], onReorder, onStartModule }) => {
   const [modules, setModules] = useState<Module[]>(initialModules);
 
   const handleOnDragEnd = (result: DropResult) => {
@@ -45,8 +47,15 @@ const PlanBuilder: React.FC<PlanBuilderProps> = ({ initialModules = [], onReorde
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                     >
-                      <h4>{module.name}</h4>
-                      <p>{module.description}</p>
+                      <div className="module-info">
+                        <h4>{module.name}</h4>
+                        <p>{module.description}</p>
+                      </div>
+                      {onStartModule && (
+                        <button className="start-btn" onClick={() => onStartModule(module.id)}>
+                          Start Lesson
+                        </button>
+                      )}
                     </div>
                   )}
                 </Draggable>
